@@ -22,8 +22,11 @@ class TestAPICall extends Component {
   }
 
   render() {
+
     return(
-      <h1>Testing!</h1>
+      <div>
+        {this.state.data.map(pic => <img src={pic.urls.small} alt=""/>)}
+      </div>
     );
   }
 }
