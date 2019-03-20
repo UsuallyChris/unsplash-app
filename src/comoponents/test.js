@@ -12,7 +12,7 @@ class TestAPICall extends Component {
 
   componentDidMount() {
     const API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY;
-    fetch(`https://api.unsplash.com/photos/?client_id=${API_KEY}`)
+    fetch(`https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=10`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -25,7 +25,7 @@ class TestAPICall extends Component {
 
     return(
       <div>
-        {this.state.data.map(pic => <img src={pic.urls.small} alt=""/>)}
+        {this.state.data.map(pic => <img src={pic.urls.regular} key={pic.id} alt=""/>)}
       </div>
     );
   }
